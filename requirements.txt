@@ -65,6 +65,8 @@ six==1.16.0
     # via python-dateutil
 threadpoolctl==3.5.0
     # via scikit-learn
+tqdm==4.66.5
+    # via -r requirements.in
 tzdata==2024.2
     # via pandas
 virtualenv==20.26.6
