@@ -6,6 +6,8 @@ The purpose is to implement the key ideas using the simplest possible code (most
 ## Bootstrap environment
 `./bootstrap.sh` will install all the necessary dependencies.
 
+Then you can activate the installed virtual environment by `source .venv/bin/activate`.
+
 ## License
 MIT
 
