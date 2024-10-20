@@ -50,7 +50,6 @@ if __name__ == "__main__":
 
     sum_squared_distances = sum((points[i] - cluster_centers[cluster_ind[i]])** 2 for i in range(N_points))**0.5
     print("Final sum of squared distances:", sum_squared_distances)
-    # print(list(zip(points, cluster_ind))[0:10])
 
     # We expect the final loss to be zero
     assert sum_squared_distances == 0
