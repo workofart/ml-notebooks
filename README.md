@@ -15,9 +15,10 @@ Then you can activate the installed virtual environment by `source .venv/bin/act
 | Probability |  x  |
 | Linear Regression  |  x  |
 | Logistic Regression |   x  |
+| K-Means    |  x  |
+| Support Vector Machine    |  x  |
 | Decision Trees    |     |
 | Multi-Layer Perceptron    |     |
-| K-Means    |  x  |
 | K-Nearest Neighbors    |     |
 | Principal Component Analysis    |     |
 
