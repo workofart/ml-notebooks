@@ -29,8 +29,8 @@ Then you can activate the installed virtual environment by `source .venv/bin/act
 | K-Means    |  x  |
 | K-Nearest Neighbors    |  x  |
 | Support Vector Machine    |  x  |
+| Multi-Layer Perceptron    |  x  |
 | Decision Trees    |     |
-| Multi-Layer Perceptron    |     |
 | Principal Component Analysis    |     |
 
 
