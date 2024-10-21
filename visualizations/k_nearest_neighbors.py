@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from sklearn.datasets import make_classification
-from knn import k_nearest_neighbors
+from algorithms.knn import k_nearest_neighbors
 
 def initialize_plot(X, K):
     """Set up the plot and initialize plot components."""

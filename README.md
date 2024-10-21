@@ -10,7 +10,7 @@ Then you can activate the installed virtual environment by `source .venv/bin/act
 
 ## Repository Structure
 
-- Root directory
+- `algorithms/`
   - `.py` files: Contains the implementations of the algorithms.
   - `.ipynb` files: Contains the notebooks for the algorithms.
 - `visualizations/`: Contains the visualizations for the algorithms.
@@ -24,15 +24,13 @@ Then you can activate the installed virtual environment by `source .venv/bin/act
 | Algorithm    | Progress |
 | -------- | ------- |
 | Probability |  x  |
+| Estimation Methods |  x  |
 | Linear Regression  |  x  |
 | Logistic Regression |   x  |
 | K-Means    |  x  |
 | K-Nearest Neighbors    |  x  |
 | Support Vector Machine    |  x  |
 | Multi-Layer Perceptron    |  x  |
-| Decision Trees    |     |
-| Principal Component Analysis    |     |
-
 
 
 ## License
