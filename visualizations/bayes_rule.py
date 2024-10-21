@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from probability import compute_bayes_rule
+from algorithms.probability import compute_bayes_rule
 
 
 def simulate_diagnosis(p_cancer, accuracy_range, false_positive_range):

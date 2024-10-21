@@ -15,7 +15,7 @@ def k_nearest_neighbors(X: np.array, y: np.array, idx: int, K: int):
     Returns:
         tuple: majority_class(list), neighbors_indices(list)
     """
-    # Compute the Euclidean distance from point X[frame] to all other points
+    # Compute the Euclidean distance from point X[idx] to all other points
     distances = np.sqrt(np.sum((X[idx] - X) ** 2, axis=1))
     
     # Sort the distances and get the indices of the sorted distances
