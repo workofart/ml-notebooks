@@ -12,3 +12,4 @@ pytest
 torch
 torchvision
 torchaudio
+ruff
