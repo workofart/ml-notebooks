@@ -18,7 +18,7 @@ print(ds.feature_names)
 
 
 def compute_linear_reg_line(feature_idx):
-    X = ds.data[:, feature_idx] # taking the first feature as example
+    X = ds.data[:, feature_idx]  # taking the first feature as example
     Y = ds.target
 
     # The objective is sum(y_i - y-hat_i) ^ 2
@@ -35,17 +35,20 @@ def compute_linear_reg_line(feature_idx):
     m = (n * sum_xy - sum_x * sum_y) / (n * sum_x_squared - sum_x**2)
     b = (sum_y - m * sum_x) / n
 
-    y_hat = m*X + b
+    y_hat = m * X + b
 
-    sns.scatterplot(x=X, y=y_hat, color='blue')
-    sns.scatterplot(x=X, y=Y, color='red')
-    plt.xlabel('X')
-    plt.ylabel('Y or Y-hat')
-    plt.title(f'Scatter Plot of Predicted vs Actual w.r.t. Feature[{ds.feature_names[i]}]')
+    sns.scatterplot(x=X, y=y_hat, color="blue")
+    sns.scatterplot(x=X, y=Y, color="red")
+    plt.xlabel("X")
+    plt.ylabel("Y or Y-hat")
+    plt.title(
+        f"Scatter Plot of Predicted vs Actual w.r.t. Feature[{ds.feature_names[i]}]"
+    )
     plt.legend()
 
     # Show the plot
     plt.show()
+
 
 for i in range(ds.data.shape[1]):
     compute_linear_reg_line(i)
