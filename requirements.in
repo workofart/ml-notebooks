@@ -8,3 +8,7 @@ tqdm
 pyright
 ipykernel
 datasets
+pytest
+torch
+torchvision
+torchaudio
