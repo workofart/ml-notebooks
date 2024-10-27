@@ -1,7 +1,12 @@
-# ML-Algorithms
+# ML From Scratch
 
-This repository contains simple implementations for various machine learning algorithms.
+This repository contains simple implementations for various machine learning algorithms from scratch.
 The purpose is to implement the key ideas using the simplest possible code (mostly for personal learning purposes).
+
+## Assumptions
+- Library effiency is not the top priority, learning is. Therefore, productionization is not the plan.
+- Only use 3rd party libraries for visualization and testing (e.g. comparing gradients with Pytorch.)
+- 
 
 ## Bootstrap environment
 `./bootstrap.sh` will install all the necessary dependencies.
