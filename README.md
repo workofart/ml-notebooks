@@ -1,5 +1,7 @@
 # ML Notebooks
 
+<img src="https://github.com/user-attachments/assets/9f57392a-8461-45cf-8fdd-c4735462cb62" alt="ml-notebooks" width="350"/>
+
 This repository contains simple implementations for various machine learning algorithms from scratch.
 The purpose is to implement the key ideas using the simplest possible code for learning purposes.
 
