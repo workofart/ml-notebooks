@@ -13,7 +13,14 @@ appnope==0.1.4
 asttokens==2.4.1
     # via stack-data
 attrs==24.2.0
-    # via aiohttp
+    # via
+    #   aiohttp
+    #   jsonschema
+    #   referencing
+beautifulsoup4==4.13.3
+    # via nbconvert
+bleach==6.2.0
+    # via nbconvert
 certifi==2024.8.30
     # via requests
 charset-normalizer==3.4.0
@@ -30,12 +37,16 @@ debugpy==1.8.7
     # via ipykernel
 decorator==5.1.1
     # via ipython
+defusedxml==0.7.1
+    # via nbconvert
 dill==0.3.8
     # via
     #   datasets
     #   multiprocess
 executing==2.1.0
     # via stack-data
+fastjsonschema==2.21.1
+    # via nbformat
 filelock==3.16.1
     # via
     #   datasets
@@ -65,19 +76,34 @@ ipython==8.28.0
 jedi==0.19.1
     # via ipython
 jinja2==3.1.4
-    # via torch
+    # via
+    #   nbconvert
+    #   torch
 joblib==1.4.2
     # via scikit-learn
+jsonschema==4.23.0
+    # via nbformat
+jsonschema-specifications==2024.10.1
+    # via jsonschema
 jupyter-client==8.6.3
-    # via ipykernel
+    # via
+    #   ipykernel
+    #   nbclient
 jupyter-core==5.7.2
     # via
     #   ipykernel
     #   jupyter-client
+    #   nbclient
+    #   nbconvert
+    #   nbformat
+jupyterlab-pygments==0.3.0
+    # via nbconvert
 kiwisolver==1.4.7
     # via matplotlib
 markupsafe==3.0.2
-    # via jinja2
+    # via
+    #   jinja2
+    #   nbconvert
 matplotlib==3.9.2
     # via
     #   -r requirements.in
@@ -86,6 +112,8 @@ matplotlib-inline==0.1.7
     # via
     #   ipykernel
     #   ipython
+mistune==3.1.1
+    # via nbconvert
 mpmath==1.3.0
     # via sympy
 multidict==6.1.0
@@ -94,6 +122,14 @@ multidict==6.1.0
     #   yarl
 multiprocess==0.70.16
     # via datasets
+nbclient==0.10.2
+    # via nbconvert
+nbconvert==7.16.6
+    # via -r requirements.in
+nbformat==5.10.4
+    # via
+    #   nbclient
+    #   nbconvert
 nest-asyncio==1.6.0
     # via ipykernel
 networkx==3.4.2
@@ -118,11 +154,14 @@ packaging==24.1
     #   huggingface-hub
     #   ipykernel
     #   matplotlib
+    #   nbconvert
 pandas==2.2.3
     # via
     #   -r requirements.in
     #   datasets
     #   seaborn
+pandocfilters==1.5.1
+    # via nbconvert
 parso==0.8.4
     # via jedi
 pexpect==4.9.0
@@ -146,7 +185,9 @@ pure-eval==0.2.3
 pyarrow==17.0.0
     # via datasets
 pygments==2.18.0
-    # via ipython
+    # via
+    #   ipython
+    #   nbconvert
 pyparsing==3.2.0
     # via matplotlib
 pyright==1.1.384
@@ -166,10 +207,18 @@ pyzmq==26.2.0
     # via
     #   ipykernel
     #   jupyter-client
+referencing==0.36.2
+    # via
+    #   jsonschema
+    #   jsonschema-specifications
 requests==2.32.3
     # via
     #   datasets
     #   huggingface-hub
+rpds-py==0.22.3
+    # via
+    #   jsonschema
+    #   referencing
 scikit-learn==1.5.2
     # via -r requirements.in
 scipy==1.14.1
@@ -182,12 +231,16 @@ six==1.16.0
     # via
     #   asttokens
     #   python-dateutil
+soupsieve==2.6
+    # via beautifulsoup4
 stack-data==0.6.3
     # via ipython
 sympy==1.13.1
     # via torch
 threadpoolctl==3.5.0
     # via scikit-learn
+tinycss2==1.4.0
+    # via bleach
 torch==2.5.0
     # via
     #   -r requirements.in
@@ -214,10 +267,15 @@ traitlets==5.14.3
     #   jupyter-client
     #   jupyter-core
     #   matplotlib-inline
+    #   nbclient
+    #   nbconvert
+    #   nbformat
 typing-extensions==4.12.2
     # via
+    #   beautifulsoup4
     #   huggingface-hub
     #   pyright
+    #   referencing
     #   torch
 tzdata==2024.2
     # via pandas
@@ -225,6 +283,10 @@ urllib3==2.2.3
     # via requests
 wcwidth==0.2.13
     # via prompt-toolkit
+webencodings==0.5.1
+    # via
+    #   bleach
+    #   tinycss2
 xxhash==3.5.0
     # via datasets
 yarl==1.15.5

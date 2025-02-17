@@ -6,6 +6,7 @@ seaborn
 tqdm
 pyright
 ipykernel
+nbconvert
 datasets
 torch
 torchvision
