@@ -1,7 +1,9 @@
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
-from IPython.display import HTML
+from IPython.display import HTML, display, Video
+import ipywidgets as widgets
 
 def nonconvex_func(x):
     """
@@ -85,7 +87,10 @@ def run_optimizer(
     x = x_init
 
     # --- Pre-allocate arrays ---
-    x_vals = np.zeros(num_iters)
+    if np.ndim(x_init) == 0:
+        x_vals = np.zeros(num_iters)
+    else:
+        x_vals = np.zeros((num_iters, len(x_init)))
     loss_vals = np.zeros(num_iters)
     lr_vals = np.zeros(num_iters)
     grad_vals = np.zeros(num_iters) if track_grad else None
@@ -111,7 +116,7 @@ def run_optimizer(
 
         # Store
         x_vals[i] = x_new
-        loss_vals[i] = func(x_new)
+        loss_vals[i] = np.mean(func(x_new))
 
         # If eff_lr is a vector, store its mean for a scalar summary.
         if isinstance(eff_lr, (list, np.ndarray)):
@@ -272,12 +277,18 @@ def simulate_and_plot(optimizers_config, n_iterations=100, x_init=0.0, noise_sca
 
 
 def animate(
+    filename: str,
     optimizers: dict,
     num_iters: int,
     x_init: float = 0.0,
     domain: tuple = (0, 10),
     n_points: int = 500
 ):
+    if not os.path.exists("artifacts"):
+        os.makedirs("artifacts")
+    if os.path.exists(f"artifacts/{filename}.mp4"):
+        return Video(f"artifacts/{filename}.mp4")
+    
     """
     Creates a matplotlib animation visualizing the parameter path x over iterations
     for multiple optimizers, each with possibly multiple LRs (1D).
@@ -367,10 +378,17 @@ def animate(
         blit=True
     )
     plt.close(fig)
+    
+    ani.save(f"artifacts/{filename}.mp4", writer="ffmpeg")
     return HTML(ani.to_jshtml())
 
 
-def animate_heatmap(optimizers, num_iters, x_init, grid_shape=None):
+def animate_heatmap(filename, optimizers, num_iters, x_init, grid_shape=None):
+    if not os.path.exists("artifacts"):
+        os.makedirs("artifacts")
+    if os.path.exists(f"artifacts/{filename}.mp4"):
+        return Video(f"artifacts/{filename}.mp4")
+    
     """
     Creates an animation comparing effective learning rate heatmaps for multiple optimizers.
     
@@ -494,4 +512,5 @@ def animate_heatmap(optimizers, num_iters, x_init, grid_shape=None):
     )
 
     plt.close(fig)
+    ani.save(f"artifacts/{filename}.mp4", writer="ffmpeg")
     return HTML(ani.to_jshtml())
