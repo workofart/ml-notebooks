@@ -79,7 +79,7 @@ def plot_regularization(filename, reg_type="L1", reg_strength=10):
         feature_indices - bar_width / 2,
         coef_ols,
         width=bar_width,
-        label="OLS (alpha=0)",
+        label="OLS (reg strength=0)",
         color="C2",
         alpha=0.7
     )
@@ -94,8 +94,8 @@ def plot_regularization(filename, reg_type="L1", reg_strength=10):
     ax1.axhline(0, color='black', linewidth=0.8)
     ax1.set_xticks(feature_indices)
     ax1.set_xlabel("Feature Index")
-    ax1.set_ylabel("Coefficient Value")
-    ax1.set_title(f"Coefficients: OLS vs. {reg_label} (alpha = 0.00)")
+    ax1.set_ylabel("Parameter/Weight Values")
+    ax1.set_title(f"Parameters: OLS vs. {reg_label} (reg strength = 0.00)")
     ax1.legend()
 
     # Right subplot: Scatter plot for predicted vs. actual values.
@@ -108,15 +108,15 @@ def plot_regularization(filename, reg_type="L1", reg_strength=10):
     ax2.legend()
 
     # 3. DEFINE THE ANIMATION LOGIC
-    alphas = np.linspace(0.01, reg_strength, 100)  # Range of regularization strengths
+    lambdas = np.linspace(0.01, reg_strength, 100)  # Range of regularization strengths
 
     def update(frame):
-        alpha_val = alphas[frame]
+        lambda_val = lambdas[frame]
         # Instantiate and fit the appropriate regularization model.
         if reg_type == "L1":
-            model = reg_model(alpha=alpha_val, max_iter=10000, random_state=1337)
+            model = reg_model(alpha=lambda_val, max_iter=10000, random_state=1337)
         else:  # L2
-            model = reg_model(alpha=alpha_val, random_state=1337)
+            model = reg_model(alpha=lambda_val, random_state=1337)
         model.fit(X, y)
         coef_reg = model.coef_
         y_pred_reg = model.predict(X)
@@ -126,7 +126,7 @@ def plot_regularization(filename, reg_type="L1", reg_strength=10):
             bar.set_height(new_height)
 
         # Update the title with the current regularization strength.
-        ax1.set_title(f"Coefficients: OLS vs. {reg_label} (alpha = {alpha_val:.2f})")
+        ax1.set_title(f"Coefficients: OLS vs. {reg_label} (reg strength = {lambda_val:.2f})")
 
         # Update the scatter plot for predicted values.
         xy = np.column_stack((y, y_pred_reg))
@@ -134,7 +134,7 @@ def plot_regularization(filename, reg_type="L1", reg_strength=10):
         return bars_reg, reg_scatter
 
     # 4. CREATE THE ANIMATION
-    ani = FuncAnimation(fig, update, frames=len(alphas), interval=20, blit=False)
+    ani = FuncAnimation(fig, update, frames=len(lambdas), interval=20, blit=False)
 
     # Step B: Finalize the animation (close figure, save MP4, and return HTML-wrapped video)
     return finalize_animation(fig, ani, video_path)
@@ -210,7 +210,7 @@ def plot_layernorm(filename, gamma=1.5, beta=0.5, n_frames=100, num_features=20)
 def plot_batchnorm(
     filename,
     gamma=1.0,
-    beta=0.0,
+    beta=0.3,
     n_frames=100,
     batch_size=32,
     num_features=3
